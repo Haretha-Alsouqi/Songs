@@ -31,13 +31,16 @@ var table = $('#albums_table').DataTable({
 var vlidator = $("form").validate({
     rules: {
         title: { minlength: 2 },
-    }
+    },
+    errorPlacement: function (error, element) {
+        if(element.hasClass('select2') && element.next('.select2-container').length) {
+            error.insertAfter(element.next('.select2-container'));
+        }else {
+            error.insertAfter(element);
+        }}
 });
 
-$('#select_artist').select2({
-    theme: "bootstrap"
-});
-$('#select_category').select2({
+$('.select2').select2({
     theme: "bootstrap"
 });
 
