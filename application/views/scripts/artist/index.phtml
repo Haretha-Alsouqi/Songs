@@ -1,0 +1,48 @@
+<?php
+$this->title = "Artists";
+$this->headTitle($this->title);
+
+//onclick="window.location.href='<?php echo $this->url(array('controller' => 'artist','action' => 'add')); '"
+?>
+
+<div class="container-fluid">
+    <p><button class="btn btn-success add_btn" data-toggle="modal" data-target="#modal">Add new artist</button></p>
+
+    <div class="container">
+        <table class="display" id="artists_table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+        </table>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="artistsForm" method="post">
+                            <input type="hidden" id="id" name="id">
+                            <div class="form-group">
+                                <label for="name">Artist name</label>
+                                <input id="name" type="text" class="form-control" name="name" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary btn-save" form="artistsForm" name="submit">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

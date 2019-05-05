@@ -1,0 +1,73 @@
+<?php
+$this->title = "My Albums";
+$this->headTitle($this->title);
+?>
+
+<div class="container-fluid">
+    <p><button class="btn btn-success add_btn" data-toggle="modal" data-target="#modal">Add new album</button></p>
+
+    <div class="container">
+        <table class="display" id="albums_table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Artist</th>
+                    <th>Category</th>
+                    <th>Image</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+        </table>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="albumsForm" method="post">
+                            <input type="hidden" id="id" name="id">
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input type="text" class="form-control" name="title" id="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="artist">Artist name</label>
+                                <select name="artist" id="select_artist" class="form-control" style="width: 100%"
+                                    required>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="category[]">Category</label>
+                                <select multiple name="category[]" id="select_category" class="form-control"
+                                    style="width: 100%">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Photo</label>
+                                <div id="imgToUpload">
+                                    <img alt="image" width="100" height="100" class="img-thumbnail">
+                                    <button type="button" class="btn btn-danger" id="remove_image">remove</button>
+                                </div>
+                                <div class="progress"></div>
+                                <div id="container">
+                                    <button type="button" class="btn btn-primary" id="browse">Browse...</button>
+                                </div>
+                                <input id="image_url" type="hidden" name="image_url">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary btn-save" form="albumsForm"
+                            name="submit">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
